@@ -74,11 +74,12 @@ describe('1 - Faça uma requisição para o endpoint `/planets` da API de Star W
     }
   });
 
-  it('Verifique se a tabela tem 13 colunas', async () => {
+  it.only('Verifique se a tabela tem 13 colunas', async () => {
     await act(async () => {
       render(<App />);
     });
     // a requisição (mock) retorna 14 chaves em cada planeta, mas a chave `residents` não deve ser exibida totalizando 13 colunas
+    console.log(screen.findAllByRole(COLUMN_ROLE_SELECTOR));
     expect(await screen.findAllByRole(COLUMN_ROLE_SELECTOR)).toHaveLength(COLUMNS_TOTAL);
   });
 
