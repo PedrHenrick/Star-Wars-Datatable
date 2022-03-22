@@ -35,7 +35,7 @@ const mockFetch = () => {
     }));
 };
 
-describe('1 - Faça uma requisição para o endpoint `/planets` da API de Star Wars e preencha uma tabela com os dados retornados, com exceção dos da coluna `residents`', () => {
+describe.only('1 - Faça uma requisição para o endpoint `/planets` da API de Star Wars e preencha uma tabela com os dados retornados, com exceção dos da coluna `residents`', () => {
   beforeAll(mockFetch);
   beforeEach(cleanup);
 
@@ -74,7 +74,7 @@ describe('1 - Faça uma requisição para o endpoint `/planets` da API de Star W
     }
   });
 
-  it.only('Verifique se a tabela tem 13 colunas', async () => {
+  it('Verifique se a tabela tem 13 colunas', async () => {
     await act(async () => {
       render(<App />);
     });
